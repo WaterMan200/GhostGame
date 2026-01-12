@@ -1,7 +1,14 @@
 fileFormatVersion: 2
-guid: 99c9720ab356a0642a771bea13969a05
+guid: c0021fbeae5729f498b32ff1815eb92e
 DefaultImporter:
   externalObjects: {}
   userData: 
   assetBundleName: 
   assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 181968
+  packageName: Untitled
+  packageVersion: 1.0
+  assetPath: Assets/network of paths/Scenes/SampleScene.unity
+  uploadId: 398001
