@@ -3,7 +3,11 @@ using UnityEngine;
 public class inventory : MonoBehaviour
 {
     public KeyCode invKey = KeyCode.E;
+    public KeyCode upKey = KeyCode.R;
+    public KeyCode downKey = KeyCode.F;
     public GameObject heldItem;
+    int selectedSlot = 0;
+    public GameObject[] invArr = new GameObject[4];
 
     public Vector3 itemPos = new Vector3(0.48300001f,0.423999995f,0.931999981f);
 
@@ -27,18 +31,62 @@ public class inventory : MonoBehaviour
             if (Physics.Raycast(origin, direction, out interactRay, interact_Distance))
                 if(interactRay.collider.gameObject.tag == "Item")
                     {
-                        Debug.Log("Triggered by an object with tag: ");
-                        GameObject item = interactRay.collider.gameObject;
-                        item.transform.SetParent(transform, true);
-                        item.GetComponent<Rigidbody>().isKinematic = true;
-                        item.GetComponent<BoxCollider>().isTrigger = true;
-                        interactRay.collider.gameObject.transform.localPosition = itemPos;
+                        int slot = canAddItem();
+                        if (slot != -1)
+                            {
+                                Debug.Log("Triggered by an object with tag: ");
+                                GameObject item = interactRay.collider.gameObject;
+                                item.transform.SetParent(transform, true);
+                                item.GetComponent<Rigidbody>().isKinematic = true;
+                                item.GetComponent<MeshCollider>().enabled = false;
+                                interactRay.collider.gameObject.transform.localPosition = itemPos;
+                                invArr[slot] = item;
+                                swapItem(slot);
+                            }
+                        else
+                    {
+                        
+                    }
+                        
                     }
                 else
                     {
                         Debug.Log("AHAHA");
                     }
         }
+        if (Input.GetKeyDown(upKey))
+        {
+            selectedSlot = (selectedSlot + 1)%4;
+            swapItem(selectedSlot);
+        }
+        if (Input.GetKeyDown(downKey))
+        {
+            selectedSlot = (selectedSlot + 3)%4;
+            swapItem(selectedSlot);
+        }
+    }
+
+    void swapItem(int slot)
+    {
+        for (int i = 0; i < 4; i++)
+        {
+            if (invArr[i] != null)
+            {
+                invArr[i].GetComponent<MeshRenderer>().enabled = false;
+            }
+        }
         
+        heldItem = invArr[slot];
+        if (heldItem != null)
+            heldItem.GetComponent<MeshRenderer>().enabled = true;
+    }
+
+    int canAddItem() // returns the index of where an object can be added to the inventory, returns -1 if no slots are available
+    {
+        for (int i = 0; i < 4; i++)
+        {
+            if (invArr[i] == null) return i;
+        }
+        return -1;
     }
 }
