@@ -32,7 +32,7 @@ public class inventory : MonoBehaviour
                 if(interactRay.collider.gameObject.tag == "Item")
                     {
                         int slot = canAddItem();
-                        if (slot != -1)
+                        if (slot != -1) // checks to see if slot is available
                             {
                                 Debug.Log("Triggered by an object with tag: ");
                                 GameObject item = interactRay.collider.gameObject;
