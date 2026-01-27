@@ -6,6 +6,7 @@ public class inventory : MonoBehaviour
     public KeyCode upKey = KeyCode.R;
     public KeyCode downKey = KeyCode.F;
     public GameObject heldItem;
+    public ItemStats heldStats;
     int selectedSlot = 0;
     public GameObject[] invArr = new GameObject[4];
 
@@ -37,6 +38,7 @@ public class inventory : MonoBehaviour
                                 Debug.Log("Triggered by an object with tag: ");
                                 GameObject item = interactRay.collider.gameObject;
                                 item.transform.SetParent(transform, true);
+                                item.transform.localEulerAngles = item.GetComponent<ItemStats>().holdAngle;
                                 item.GetComponent<Rigidbody>().isKinematic = true;
                                 item.GetComponent<MeshCollider>().enabled = false;
                                 interactRay.collider.gameObject.transform.localPosition = itemPos;
@@ -64,6 +66,12 @@ public class inventory : MonoBehaviour
             selectedSlot = (selectedSlot + 3)%4;
             swapItem(selectedSlot);
         }
+
+        if (Input.GetMouseButtonDown(1) && heldItem != null)
+        {
+            OnClick();
+            // Add your custom functionality here
+        }
     }
 
     void swapItem(int slot)
@@ -77,6 +85,7 @@ public class inventory : MonoBehaviour
         }
         
         heldItem = invArr[slot];
+        heldStats = heldItem.GetComponent<ItemStats>();
         if (heldItem != null)
             heldItem.GetComponent<MeshRenderer>().enabled = true;
     }
@@ -88,5 +97,16 @@ public class inventory : MonoBehaviour
             if (invArr[i] == null) return i;
         }
         return -1;
+    }
+
+    void OnClick()
+    {
+        string id = heldStats.id;
+
+        if (id == "flashlight") // IF ITEM IS A FLASHLIGHT
+        {
+            heldStats.tiedStuff[0].SetActive(!heldStats.tiedStuff[0].activeSelf);
+            
+        }
     }
 }

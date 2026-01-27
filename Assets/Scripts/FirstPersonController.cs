@@ -127,6 +127,8 @@ public class FirstPersonController : MonoBehaviour
     public float bobSpeed = 10f;
     public Vector3 bobAmount = new Vector3(.15f, .05f, 0f);
 
+    public KeyCode pause = KeyCode.Escape;
+
     // Internal Variables
     private Vector3 jointOriginalPos;
     private float timer = 0;
@@ -205,6 +207,11 @@ public class FirstPersonController : MonoBehaviour
     private void Update()
     {
         #region Camera
+
+        if(Input.GetKeyDown(pause))
+        {
+            cameraCanMove = !cameraCanMove;
+        }
 
         // Control camera movement
         if(cameraCanMove)
