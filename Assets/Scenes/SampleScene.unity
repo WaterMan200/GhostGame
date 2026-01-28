@@ -15,7 +15,7 @@ RenderSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 10
   m_Fog: 1
-  m_FogColor: {r: 0.5849056, g: 0.504895, b: 0.504895, a: 1}
+  m_FogColor: {r: 0.24053332, g: 0.2270826, b: 0.254717, a: 1}
   m_FogMode: 3
   m_FogDensity: 0.01
   m_LinearFogStart: 0
@@ -23,12 +23,12 @@ RenderSettings:
   m_AmbientSkyColor: {r: 0.212, g: 0.227, b: 0.259, a: 1}
   m_AmbientEquatorColor: {r: 0.114, g: 0.125, b: 0.133, a: 1}
   m_AmbientGroundColor: {r: 0.047, g: 0.043, b: 0.035, a: 1}
-  m_AmbientIntensity: 1
+  m_AmbientIntensity: 0.59
   m_AmbientMode: 0
-  m_SubtractiveShadowColor: {r: 0.36625448, g: 0.25453898, b: 0.3773585, a: 1}
+  m_SubtractiveShadowColor: {r: 0.12333545, g: 0.10866857, b: 0.20754719, a: 1}
   m_SkyboxMaterial: {fileID: 2100000, guid: 97637a2a763b7f24b8da4e139e4144ca, type: 2}
-  m_HaloStrength: 0.5
-  m_FlareStrength: 1
+  m_HaloStrength: 0.328
+  m_FlareStrength: 0.552
   m_FlareFadeSpeed: 3
   m_HaloTexture: {fileID: 0}
   m_SpotCookie: {fileID: 10001, guid: 0000000000000000e000000000000000, type: 0}
@@ -93,7 +93,7 @@ LightmapSettings:
     m_ExportTrainingData: 0
     m_TrainingDataDestination: TrainingData
     m_LightProbeSampleCountMultiplier: 4
-  m_LightingDataAsset: {fileID: 0}
+  m_LightingDataAsset: {fileID: 112000000, guid: 092e2c3cd0aaa1c4fbaff8e619771246, type: 2}
   m_LightingSettings: {fileID: 4890085278179872738, guid: f6009da32306ca24fbf30e7b75afc86d, type: 2}
 --- !u!196 &4
 NavMeshSettings:
@@ -445,8 +445,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ef8310004704f124e9cdc37fd9cbe083, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ItemStats
-  holdAngle: {x: 0, y: 107.54998, z: 0}
-  holdPos: {x: 0.63, y: -0.13, z: 0.93200684}
+  holdAngle: {x: 2.529999, y: 95.189995, z: -0.00000010682582}
+  holdPos: {x: 0.48299155, y: -0.34, z: 0.59}
   tiedStuff:
   - {fileID: 2083712312}
   id: flashlight
@@ -1022,8 +1022,8 @@ Light:
   m_Enabled: 1
   serializedVersion: 12
   m_Type: 1
-  m_Color: {r: 0.88875455, g: 0.82444817, b: 0.9150943, a: 1}
-  m_Intensity: 0.02
+  m_Color: {r: 0.28907874, g: 0.255518, b: 0.6226415, a: 1}
+  m_Intensity: 0.005
   m_Range: 10
   m_SpotAngle: 30
   m_InnerSpotAngle: 21.80208
@@ -1188,6 +1188,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: '::'
   invKey: 101
+  dropKey: 103
   upKey: 114
   downKey: 102
   heldItem: {fileID: 0}
@@ -3061,10 +3062,10 @@ Light:
   m_Enabled: 1
   serializedVersion: 12
   m_Type: 0
-  m_Color: {r: 0.9339623, g: 0.91780883, b: 0.885502, a: 1}
-  m_Intensity: 161.4
-  m_Range: 1079.17
-  m_SpotAngle: 43.077625
+  m_Color: {r: 0.9716981, g: 0.954892, b: 0.9212798, a: 1}
+  m_Intensity: 33.1
+  m_Range: 738.44
+  m_SpotAngle: 53.703194
   m_InnerSpotAngle: 0
   m_CookieSize2D: {x: 0.5, y: 0.5}
   m_Shadows:
@@ -3105,8 +3106,8 @@ Light:
   m_LightShadowCasterMode: 0
   m_AreaSize: {x: 1, y: 1}
   m_BounceIntensity: 1
-  m_ColorTemperature: 6570
-  m_UseColorTemperature: 0
+  m_ColorTemperature: 5251
+  m_UseColorTemperature: 1
   m_BoundingSphereOverride: {x: 0, y: 0, z: 0, w: 0}
   m_UseBoundingSphereOverride: 0
   m_UseViewFrustumForShadowCasterCull: 1

@@ -3,6 +3,7 @@ using UnityEngine;
 public class inventory : MonoBehaviour
 {
     public KeyCode invKey = KeyCode.E;
+    public KeyCode dropKey = KeyCode.G;
     public KeyCode upKey = KeyCode.R;
     public KeyCode downKey = KeyCode.F;
     public GameObject heldItem;
@@ -56,6 +57,13 @@ public class inventory : MonoBehaviour
                         Debug.Log("AHAHA");
                     }
         }
+        if (Input.GetKeyDown(dropKey))
+        {
+            heldItem.transform.SetParent(null);
+            heldItem.GetComponent<Rigidbody>().isKinematic = false;
+            heldItem.GetComponent<MeshCollider>().enabled = true;
+
+        }
         if (Input.GetKeyDown(upKey))
         {
             selectedSlot = (selectedSlot + 1)%4;
@@ -85,9 +93,16 @@ public class inventory : MonoBehaviour
         }
         
         heldItem = invArr[slot];
-        heldStats = heldItem.GetComponent<ItemStats>();
         if (heldItem != null)
+        {
+            heldStats = heldItem.GetComponent<ItemStats>();
             heldItem.GetComponent<MeshRenderer>().enabled = true;
+        }
+        else
+        {
+            heldStats = null;
+        }
+            
     }
 
     int canAddItem() // returns the index of where an object can be added to the inventory, returns -1 if no slots are available
