@@ -14,7 +14,7 @@ OcclusionCullingSettings:
 RenderSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 10
-  m_Fog: 1
+  m_Fog: 0
   m_FogColor: {r: 0.24053332, g: 0.2270826, b: 0.254717, a: 1}
   m_FogMode: 3
   m_FogDensity: 0.01
@@ -976,7 +976,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &682928829
 Transform:
   m_ObjectHideFlags: 0
@@ -2345,7 +2345,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!54 &1738182670
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -2423,7 +2423,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: db4ca6876b6041344a0af3624b64c9ed, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::MoveTo
-  goal: {fileID: 822231773}
+  player: {fileID: 822231773}
+  enemy: {fileID: 1738182673}
+  moveState: 0
 --- !u!65 &1738182675
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -3496,7 +3498,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!23 &5075444247349028857
 MeshRenderer:
   m_ObjectHideFlags: 0
