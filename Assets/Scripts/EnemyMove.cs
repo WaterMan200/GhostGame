@@ -1,19 +1,28 @@
 using UnityEngine;
 using UnityEngine.AI;
+using System.Collections;
+using System.Collections.Generic;
 
 public class EnemyMove : MonoBehaviour {
 
-    public Transform player;
-    public Transform enemy;
+    public GameObject player;
+    public GameObject enemy;
     private NavMeshAgent agent;
     public MoveState moveState;
     private float roamTime;
+    private Transform playerPos;
+    private Vision enemyVision;
+    private Vision playerVision;
+    private List<Transform> Targets = new List<Transform>();
 
   void Start ()
 {
       agent = GetComponent<NavMeshAgent>();
       roamTime = 0f;
-
+      playerPos = player.transform;
+      enemyVision = enemy.GetComponent<Vision>();
+      playerVision = player.GetComponent<Vision>();
+      //Targets = enemyVision.GetComponent<visibleTargets>();
       
 }
   void Update () 
@@ -33,9 +42,9 @@ public class EnemyMove : MonoBehaviour {
     }
     if (moveState == MoveState.Chase)  ChaseMove();
     if(moveState == MoveState.Stalk) StalkMove();
-    if(moveState == MoveState.Idle);
 
     roamTime -= Time.deltaTime;
+
   }
     
   private void WanderMove()
@@ -54,7 +63,7 @@ private void StalkMove()
 private void ChaseMove()
 {
   //Change to LAST SEEN POS after enemy FOV 
-    agent.destination = player.position;
+    agent.destination = playerPos.position;
 }
 void OnCollisionEnter(Collision other)
 {

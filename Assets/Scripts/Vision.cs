@@ -1,17 +1,4 @@
-/*using UnityEngine;
 
-public class Vision
-{
-    public Transform target;
-    public Transform self;
-    public float viewAngle;
-    public float viewRadius;
-
-    public Vector3 DirFromAngle(float angleInDegrees)
-    {
-        return new Vector3(Mathf.Sin(angleInDegrees * Mathf.Deg2Rad), 0, Mathf.Cos(angleInDegrees * Mathf.Deg2Rad));
-    }
-}*/
 ﻿using UnityEngine;
 using System.Collections;
 using System.Collections.Generic;

@@ -131,7 +131,7 @@ GameObject:
   - component: {fileID: 6900031}
   - component: {fileID: 6900030}
   - component: {fileID: 6900029}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Cube
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -374,7 +374,7 @@ GameObject:
   - component: {fileID: 136336620}
   - component: {fileID: 136336622}
   - component: {fileID: 136336621}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Spot Light
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -594,9 +594,41 @@ PrefabInstance:
       propertyPath: m_Name
       value: Player
       objectReference: {fileID: 0}
+    - target: {fileID: 4459864850019384750, guid: 6bacecc4f3df9584198879c73a6b6c36, type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 4459864850190357393, guid: 6bacecc4f3df9584198879c73a6b6c36, type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 4459864850831721272, guid: 6bacecc4f3df9584198879c73a6b6c36, type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 4459864850888339818, guid: 6bacecc4f3df9584198879c73a6b6c36, type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 4459864851310106424, guid: 6bacecc4f3df9584198879c73a6b6c36, type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
     - target: {fileID: 4459864851310106426, guid: 6bacecc4f3df9584198879c73a6b6c36, type: 3}
       propertyPath: far clip plane
       value: 1428.33
+      objectReference: {fileID: 0}
+    - target: {fileID: 4459864851397454630, guid: 6bacecc4f3df9584198879c73a6b6c36, type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 4459864851508666809, guid: 6bacecc4f3df9584198879c73a6b6c36, type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 4459864851551516604, guid: 6bacecc4f3df9584198879c73a6b6c36, type: 3}
+      propertyPath: m_Layer
+      value: 7
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -636,7 +668,7 @@ GameObject:
   - component: {fileID: 269460417}
   - component: {fileID: 269460416}
   - component: {fileID: 269460415}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Terrain
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -897,7 +929,7 @@ GameObject:
   m_Component:
   - component: {fileID: 557684551}
   - component: {fileID: 557684550}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Audio Source
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1249,6 +1281,7 @@ GameObject:
   - component: {fileID: 1731271759}
   - component: {fileID: 1731271758}
   - component: {fileID: 1731271757}
+  - component: {fileID: 1731271762}
   m_Layer: 3
   m_Name: Enemy
   m_TagString: Untagged
@@ -1268,9 +1301,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: db4ca6876b6041344a0af3624b64c9ed, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::MoveTo
-  player: {fileID: 22532024}
-  enemy: {fileID: 1731271761}
-  moveState: 2
+  player: {fileID: 107074561}
+  enemy: {fileID: 1731271756}
+  moveState: 0
 --- !u!54 &1731271758
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -1280,7 +1313,7 @@ Rigidbody:
   m_GameObject: {fileID: 1731271756}
   serializedVersion: 5
   m_Mass: 1
-  m_LinearDamping: 0
+  m_LinearDamping: 0.5
   m_AngularDamping: 0.05
   m_CenterOfMass: {x: 0, y: 0, z: 0}
   m_InertiaTensor: {x: 1, y: 1, z: 1}
@@ -1357,6 +1390,27 @@ Transform:
   - {fileID: 1709137469}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1731271762
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1731271756}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e297c0f5d2a8c68469666c2861fb999d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Vision
+  viewRadius: 50
+  viewAngle: 106
+  targetMask:
+    serializedVersion: 2
+    m_Bits: 128
+  obstacleMask:
+    serializedVersion: 2
+    m_Bits: 64
+  visibleTargets: []
 --- !u!1 &1830159732
 GameObject:
   m_ObjectHideFlags: 0
@@ -1367,7 +1421,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1830159733}
   - component: {fileID: 1830159734}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Audio Reverb Zone
   m_TagString: Untagged
   m_Icon: {fileID: 0}
