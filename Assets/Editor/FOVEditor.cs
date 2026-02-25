@@ -15,6 +15,11 @@ public class FOVEditor : Editor {
 		Handles.DrawLine (fow.transform.position, fow.transform.position + viewAngleA * fow.viewRadius);
 		Handles.DrawLine (fow.transform.position, fow.transform.position + viewAngleB * fow.viewRadius);
 
+		Handles.color = Color.yellow;
+		Handles.DrawWireArc (fow.transform.position, Vector3.up, Vector3.forward, 360, fow.listenRadius);
+		Handles.color = Color.orange;
+		Handles.DrawWireArc (fow.transform.position, Vector3.up, Vector3.forward, 360, fow.crouchRadius);
+
 		Handles.color = Color.red;
 		foreach (Transform visibleTarget in fow.visibleTargets) {
 			Handles.DrawLine (fow.transform.position, visibleTarget.position);
