@@ -127,7 +127,6 @@ private void StalkMove()
 }
 private void ChaseMove(Vector3 pos)
 {
-  //Change to LAST SEEN POS after enemy FOV 
     agent.destination = pos;
 }
 void OnCollisionEnter(Collision other)
