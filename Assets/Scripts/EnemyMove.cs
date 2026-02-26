@@ -1,9 +1,7 @@
-using UnityEngine;
-using UnityEngine.AI;
-using System.Collections;
-using System.Collections.Generic;
+    using UnityEngine;
+    using UnityEngine.AI;
 
-public class EnemyMove : MonoBehaviour {
+    public class EnemyMove : MonoBehaviour {
 
     public GameObject player;
     public GameObject enemy;
@@ -141,6 +139,5 @@ public enum MoveState
     Default,
     Wander,
     Stalk, 
-    Chase,
-    Idle
+    Chase
 }

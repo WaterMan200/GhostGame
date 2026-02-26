@@ -62,6 +62,8 @@ public class inventory : MonoBehaviour
             heldItem.transform.SetParent(null);
             heldItem.GetComponent<Rigidbody>().isKinematic = false;
             heldItem.GetComponent<MeshCollider>().enabled = true;
+            heldItem = null;
+            invArr[selectedSlot] = null;
 
         }
         if (Input.GetKeyDown(upKey))
