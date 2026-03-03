@@ -7,6 +7,8 @@ public class ItemStats : MonoBehaviour
 
     public GameObject[] tiedStuff;
 
+    public bool turnOffOnSwitch = false;
+
     public string id;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()

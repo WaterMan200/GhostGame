@@ -8,6 +8,8 @@ public class inventory : MonoBehaviour
     public KeyCode downKey = KeyCode.F;
     public GameObject heldItem;
     public ItemStats heldStats;
+
+    Collider heldCollider;
     int selectedSlot = 0;
     public GameObject[] invArr = new GameObject[4];
 
@@ -41,7 +43,6 @@ public class inventory : MonoBehaviour
                                 item.transform.SetParent(transform, true);
                                 item.transform.localEulerAngles = item.GetComponent<ItemStats>().holdAngle;
                                 item.GetComponent<Rigidbody>().isKinematic = true;
-                                item.GetComponent<MeshCollider>().enabled = false;
                                 interactRay.collider.gameObject.transform.localPosition = itemPos;
                                 invArr[slot] = item;
                                 swapItem(slot);
@@ -61,8 +62,9 @@ public class inventory : MonoBehaviour
         {
             heldItem.transform.SetParent(null);
             heldItem.GetComponent<Rigidbody>().isKinematic = false;
-            heldItem.GetComponent<MeshCollider>().enabled = true;
+            heldCollider.enabled = true;
             heldItem = null;
+            heldStats = null;
             invArr[selectedSlot] = null;
 
         }
@@ -86,6 +88,10 @@ public class inventory : MonoBehaviour
 
     void swapItem(int slot)
     {
+        if (heldItem != null && heldStats.turnOffOnSwitch)
+        {
+            OnClick();
+        }
         for (int i = 0; i < 4; i++)
         {
             if (invArr[i] != null)
@@ -98,6 +104,9 @@ public class inventory : MonoBehaviour
         if (heldItem != null)
         {
             heldStats = heldItem.GetComponent<ItemStats>();
+            if (heldItem.GetComponent<MeshCollider>() != null) heldCollider = heldItem.GetComponent<MeshCollider>();
+            if (heldItem.GetComponent<BoxCollider>() != null) heldCollider = heldItem.GetComponent<BoxCollider>();
+            heldCollider.enabled = false;
             heldItem.GetComponent<MeshRenderer>().enabled = true;
         }
         else
@@ -125,5 +134,13 @@ public class inventory : MonoBehaviour
             heldStats.tiedStuff[0].SetActive(!heldStats.tiedStuff[0].activeSelf);
             
         }
+        else if (id == "lantern") // IF ITEM IS A Lantern
+        {
+            heldStats.tiedStuff[0].SetActive(!heldStats.tiedStuff[0].activeSelf);
+            heldStats.tiedStuff[1].SetActive(!heldStats.tiedStuff[1].activeSelf);
+            heldStats.tiedStuff[2].SetActive(!heldStats.tiedStuff[2].activeSelf);
+        }
     }
+
+    
 }
