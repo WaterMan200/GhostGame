@@ -7,6 +7,7 @@ using System.Collections.Generic;
 
     public GameObject player;
     public GameObject enemy;
+    public GameObject stalkTarget;
     private NavMeshAgent agent;
     public MoveState moveState;
     private float roamTime;
@@ -16,9 +17,13 @@ using System.Collections.Generic;
     private List<Transform> Targets = new List<Transform>();
     private bool following;
     private bool searching;
+    private bool stalking;
+    private bool frozen;
     private Vector3 playerLastSeen;
     private float searchTime;
     private float speed;
+    private float freezeTime;
+
 
   void Start ()
 {
@@ -29,48 +34,52 @@ using System.Collections.Generic;
       playerVision = player.GetComponent<Vision>();
       following = false;
       searching = false;
+      stalking = false;
+      frozen = false;
       playerLastSeen = player.transform.position;
       searchTime = 5f;
+      freezeTime = 0f;
       
 }
   void Update () 
   {
 
-    Targets = enemyVision.visibleTargets;
-    if(Targets.Count > 0)
-    {
-        following = true;
-        playerLastSeen = player.transform.position;
-    }
-    else
-    {
-      if(searchTime == 5f && agent.remainingDistance <= 1f)
-      {
-       
-        searchTime -= Time.deltaTime;
-        following = false;
-        searching = true;
-      }
-      if(searchTime < 5f)
-      {
-        //TURN RIGHT HERE
-        searchTime -= Time.deltaTime;
-      } 
 
-      if(searchTime <= 2.5f)
-      {
-        //Turn Left HERE
-      }
-      if(searchTime <= 0f && searching)
-      {
-        searchTime = 5f;
-        agent.isStopped = true;
-        searching = false;                  
-      }
-
-    }
     if (moveState == MoveState.Default)
     {
+      Targets = enemyVision.visibleTargets;
+      if(Targets.Count > 0)
+      {
+          following = true;
+          playerLastSeen = player.transform.position;
+      }
+      else
+      {
+        if(searchTime == 5f && agent.remainingDistance <= 1f)
+        {
+        
+          searchTime -= Time.deltaTime;
+          following = false;
+          searching = true;
+        }
+        if(searchTime < 5f)
+        {
+          //TURN RIGHT HERE
+          searchTime -= Time.deltaTime;
+        } 
+
+        if(searchTime <= 2.5f)
+        {
+          //Turn Left HERE
+        }
+        if(searchTime <= 0f && searching)
+        {
+          searchTime = 5f;
+          agent.isStopped = true;
+          searching = false;                  
+        }
+
+      }
       if(!following && !searching)
       {
         if(roamTime <= 0f) 
@@ -80,6 +89,10 @@ using System.Collections.Generic;
         }
         if(agent.remainingDistance <= 1) agent.isStopped = true;
         else agent.isStopped = false;    
+      }
+      else if(following && stalking)
+      {
+          
       }
       else if(following)
       {
@@ -102,7 +115,7 @@ using System.Collections.Generic;
         
     }
     if (moveState == MoveState.Chase)  ChaseMove(playerPos);
-    if(moveState == MoveState.Stalk) StalkMove();
+    if(moveState == MoveState.Stalk) ChaseMove(stalkTarget.transform.position);
 
     roamTime -= Time.deltaTime;
 
@@ -121,13 +134,8 @@ using System.Collections.Generic;
   }
   agent.destination = finalPosition;
 }
-private void StalkMove()
-{
-    //idk how going to do this bro
-}
 private void ChaseMove(Vector3 pos)
 {
-  //Change to LAST SEEN POS after enemy FOV 
     agent.destination = pos;
 }
 void OnCollisionEnter(Collision other)
@@ -141,5 +149,6 @@ public enum MoveState
     Default,
     Wander,
     Stalk, 
-    Chase
+    Chase,
+    Idle
 }
