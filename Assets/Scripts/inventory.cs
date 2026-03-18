@@ -43,8 +43,9 @@ public class inventory : MonoBehaviour
                                 item.transform.SetParent(transform, true);
                                 item.transform.localEulerAngles = item.GetComponent<ItemStats>().holdAngle;
                                 item.GetComponent<Rigidbody>().isKinematic = true;
-                                interactRay.collider.gameObject.transform.localPosition = itemPos;
+                                interactRay.collider.gameObject.transform.localPosition = item.GetComponent<ItemStats>().holdPos;
                                 invArr[slot] = item;
+                                selectedSlot = slot;
                                 swapItem(slot);
                             }
                         else
@@ -141,6 +142,8 @@ public class inventory : MonoBehaviour
             heldStats.tiedStuff[2].SetActive(!heldStats.tiedStuff[2].activeSelf);
         }
     }
+
+    
 
     
 }
