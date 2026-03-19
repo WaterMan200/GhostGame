@@ -7,11 +7,13 @@ public class winscript : MonoBehaviour
     public Material skyDay;
     public Material skyNight;
     public GameObject sun;
+    public GameObject enemy;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
         RenderSettings.skybox = skyNight;
         sun.SetActive(false);
+        enemy.SetActive(true);
     }
 
     // Update is called once per frame
@@ -24,6 +26,7 @@ public class winscript : MonoBehaviour
     {
         RenderSettings.skybox = skyDay;
         sun.SetActive(true);
+        enemy.SetActive(false);
     }
 
 

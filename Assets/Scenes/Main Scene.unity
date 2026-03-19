@@ -513,7 +513,6 @@ GameObject:
   m_Layer: 0
   m_Name: Cube
   m_TagString: Enemy
-  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1114,6 +1113,7 @@ MonoBehaviour:
   skyDay: {fileID: 2100000, guid: 3e56423e1fe71f94ea97f5bb2004a7e6, type: 2}
   skyNight: {fileID: 2100000, guid: 97637a2a763b7f24b8da4e139e4144ca, type: 2}
   sun: {fileID: 1641491448}
+  enemy: {fileID: 1144944937}
 --- !u!4 &427253468
 Transform:
   m_ObjectHideFlags: 0
@@ -3267,8 +3267,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Vision
   viewRadius: 56
   listenRadius: 0
-  viewRadius: 56
-  listenRadius: 0
   crouchRadius: 0
   viewAngle: 30
   targetMask:
@@ -4078,6 +4076,37 @@ MonoBehaviour:
   tiedStuff: []
   turnOffOnSwitch: 0
   id: 
+--- !u!1 &1410601055
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1410601056}
+  m_Layer: 0
+  m_Name: THE CONCEPT OF TIME
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1410601056
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1410601055}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 444.56677, y: 9.657, z: 1729}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1416224034 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 4025223331114479882, guid: 0d339a40627d7bd42866cb3658065eb7, type: 3}
@@ -7095,3 +7124,4 @@ SceneRoots:
   - {fileID: 427253468}
   - {fileID: 792373380}
   - {fileID: 1641491451}
+  - {fileID: 1410601056}

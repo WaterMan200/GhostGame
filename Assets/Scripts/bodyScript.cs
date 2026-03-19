@@ -18,6 +18,6 @@ public class bodyScript : MonoBehaviour
 
     void OnTriggerEnter(Collider other)
     {
-        ws.setDay();
+        if(other.GetComponent<Collider>().gameObject.tag == "Player")ws.setDay();
     }
 }
