@@ -4085,6 +4085,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1410601056}
+  - component: {fileID: 1410601057}
   m_Layer: 0
   m_Name: THE CONCEPT OF TIME
   m_TagString: Untagged
@@ -4107,6 +4108,20 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1410601057
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1410601055}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 90305b3c4c6eb7842a5985caa321369a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Menu
+  time: 0
+  pauseKey: 99
 --- !u!1 &1416224034 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 4025223331114479882, guid: 0d339a40627d7bd42866cb3658065eb7, type: 3}
@@ -6902,7 +6917,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7295199207722019825}
   serializedVersion: 2
-  m_LocalRotation: {x: -0.7071068, y: 0, z: -0, w: 0.7071068}
+  m_LocalRotation: {x: 0.7071068, y: -0, z: -0, w: -0.7071068}
   m_LocalPosition: {x: 464.8005, y: 5.19, z: 376.76105}
   m_LocalScale: {x: 0.98, y: 0.98, z: 0.98}
   m_ConstrainProportionsScale: 0
@@ -6911,7 +6926,7 @@ Transform:
   - {fileID: 1254305748}
   - {fileID: 1668066367}
   m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 270, y: 0, z: 0}
 --- !u!23 &8396241411620410213
 MeshRenderer:
   m_ObjectHideFlags: 0
