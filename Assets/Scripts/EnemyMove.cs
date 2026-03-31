@@ -43,7 +43,7 @@ public class EnemyMove : MonoBehaviour {
 
 	}
 	void Update () 
-		{
+	{
 		if (moveState == MoveState.Default)
 		{
 			Targets = enemyVision.visibleTargets;
@@ -106,10 +106,10 @@ public class EnemyMove : MonoBehaviour {
 
 					if(freezeTime >= playerEnemyDist/5f){
 						agent.isStopped = false;
-                        stalking = false;
+						stalking = false;
 						freezeTime = 0f;
-                    }
-                }
+					}
+				}
 				else if(playerVision[1].visibleTargets.Count == 0)
 				{
 					ChaseMove(stalkTarget.transform.position);
@@ -160,7 +160,7 @@ public class EnemyMove : MonoBehaviour {
 			agent.updateRotation = true;
 			agent.updatePosition = true;
 		}
-
+		
 	}
 
 	private void WanderMove()
