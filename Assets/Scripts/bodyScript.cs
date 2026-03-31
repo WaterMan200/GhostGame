@@ -1,5 +1,6 @@
 using UnityEngine;
-
+using System.Collections;
+using System.Collections.Generic;
 public class bodyScript : MonoBehaviour
 {
     public GameObject winObj;
@@ -18,6 +19,8 @@ public class bodyScript : MonoBehaviour
 
     void OnTriggerEnter(Collider other)
     {
-        if(other.GetComponent<Collider>().gameObject.tag == "Player")ws.setDay();
+        if(other.gameObject.tag == "Player")ws.setDay();
     }
+
+    
 }
