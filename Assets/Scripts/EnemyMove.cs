@@ -18,7 +18,6 @@ public class EnemyMove : MonoBehaviour {
 	private bool following;
 	private bool searching;
 	private bool stalking;
-	private bool frozen;
 	private Vector3 playerLastSeen;
 	private float searchTime;
 	private float speed;
@@ -36,7 +35,6 @@ public class EnemyMove : MonoBehaviour {
 		following = false;
 		searching = false;
 		stalking = false;
-		frozen = false;
 		playerLastSeen = player.transform.position;
 		searchTime = 5f;
 		freezeTime = 0f;
@@ -49,7 +47,7 @@ public class EnemyMove : MonoBehaviour {
 			Targets = enemyVision.visibleTargets;
 			if(Targets.Count > 0)
 			{
-				if(playerVision[1].visibleTargets.Count == 0 && following == false) stalking = true;
+				if(playerVision[0].visibleTargets.Count == 0 && following == false) stalking = true;
 				following = true;
 				playerLastSeen = player.transform.position;
 			}
@@ -104,7 +102,7 @@ public class EnemyMove : MonoBehaviour {
 					agent.isStopped = true;
 					freezeTime += Time.deltaTime;
 
-					if(freezeTime >= playerEnemyDist/5f){
+					if(freezeTime >= playerEnemyDist/10f){
 						agent.isStopped = false;
 						stalking = false;
 						freezeTime = 0f;
