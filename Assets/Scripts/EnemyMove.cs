@@ -23,6 +23,7 @@ public class EnemyMove : MonoBehaviour {
 	private float speed;
 	private float freezeTime;
 	private float playerEnemyDist;
+	public GameObject menu;
 
 
 	void Start ()
@@ -180,7 +181,11 @@ public class EnemyMove : MonoBehaviour {
 	}
 	void OnCollisionEnter(Collision other)
 	{
-		if (other.collider.gameObject.tag == "Player") Debug.Log("HAHAHAHAA");
+		if (other.collider.gameObject.tag == "Player") 
+		{
+			Debug.Log("HAHAHAHAA");
+			menu.GetComponent<Menu>().death();
+		}
 	}
 
 }
