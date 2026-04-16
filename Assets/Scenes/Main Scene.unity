@@ -3463,7 +3463,7 @@ MonoBehaviour:
   player: {fileID: 1175120738}
   enemy: {fileID: 1144944937}
   stalkTarget: {fileID: 1782873374}
-  moveState: 0
+  moveState: 4
   menu: {fileID: 1410601055}
 --- !u!54 &1144944940
 Rigidbody:
@@ -3816,7 +3816,30 @@ MonoBehaviour:
   viewRadius: 56
   listenRadius: 0
   crouchRadius: 0
-  viewAngle: 60.4
+  viewAngle: 32
+  targetMask:
+    serializedVersion: 2
+    m_Bits: 8
+  obstacleMask:
+    serializedVersion: 2
+    m_Bits: 64
+  visibleTargets: []
+--- !u!114 &1175120752
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1175120738}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e297c0f5d2a8c68469666c2861fb999d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Vision
+  viewRadius: 56
+  listenRadius: 0
+  crouchRadius: 0
+  viewAngle: 72
   targetMask:
     serializedVersion: 2
     m_Bits: 8
@@ -6432,6 +6455,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 4459864850019384750, guid: 6bacecc4f3df9584198879c73a6b6c36, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1175120746}
+    - targetCorrespondingSourceObject: {fileID: 4459864850019384750, guid: 6bacecc4f3df9584198879c73a6b6c36, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1175120752}
     - targetCorrespondingSourceObject: {fileID: 4459864851310106424, guid: 6bacecc4f3df9584198879c73a6b6c36, type: 3}
       insertIndex: -1
       addedObject: {fileID: 822231776}
