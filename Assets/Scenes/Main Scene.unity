@@ -1115,8 +1115,8 @@ MonoBehaviour:
   sun: {fileID: 1641491448}
   enemy: {fileID: 1144944937}
   body: {fileID: 792373375}
-  OuterSpawnRadius: 821
-  InnerSpawnRadius: 606
+  OuterSpawnRadius: 775
+  InnerSpawnRadius: 568
   layerInclude: 8
 --- !u!4 &427253468
 Transform:
@@ -4115,7 +4115,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Menu
   time: 0
-  pauseKey: 99
+  pause: 27
 --- !u!1 &1416224034 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 4025223331114479882, guid: 0d339a40627d7bd42866cb3658065eb7, type: 3}
