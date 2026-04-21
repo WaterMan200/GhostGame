@@ -135,6 +135,9 @@ public class FirstPersonController : MonoBehaviour
     private Vector3 jointOriginalPos;
     private float timer = 0;
 
+    public GameObject menu;
+    private bool time;
+
     #endregion
 
     private void Awake()
@@ -209,10 +212,14 @@ public class FirstPersonController : MonoBehaviour
     private void Update()
     {
         #region Camera
-
-        if(Input.GetKeyDown(pause))
+        time =  menu.GetComponent<Menu>().time;
+        if(time)
         {
-            cameraCanMove = !cameraCanMove;
+            cameraCanMove = true;
+        }
+        else
+        {
+            cameraCanMove = false;
         }
 
         // Control camera movement
@@ -744,6 +751,7 @@ public class FirstPersonController : MonoBehaviour
         fpc.joint = (Transform)EditorGUILayout.ObjectField(new GUIContent("Camera Joint", "Joint object position is moved while head bob is active."), fpc.joint, typeof(Transform), true);
         fpc.bobSpeed = EditorGUILayout.Slider(new GUIContent("Speed", "Determines how often a bob rotation is completed."), fpc.bobSpeed, 1, 20);
         fpc.bobAmount = EditorGUILayout.Vector3Field(new GUIContent("Bob Amount", "Determines the amount the joint moves in both directions on every axes."), fpc.bobAmount);
+        fpc.menu = (GameObject)EditorGUILayout.ObjectField(new GUIContent("menu"), fpc.menu, typeof(GameObject), true);
         GUI.enabled = true;
 
         #endregion
