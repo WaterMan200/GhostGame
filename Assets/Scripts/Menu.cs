@@ -5,18 +5,25 @@ public class Menu : MonoBehaviour
 {
     public GameObject pauseScreen;
     public GameObject deathScreen;
+    public GameObject mainScreen;
     public GameObject cursor;
+    public GameObject cam;
     [HideInInspector] public bool time;
     public KeyCode pause = KeyCode.Escape;
     void Start()
     {
-        time = true;
+        time = false;
         pauseScreen.SetActive(false);
         deathScreen.SetActive(false);
+        mainScreen.SetActive(true);
+        cam.SetActive(true);
+        Cursor.lockState = CursorLockMode.None;
+        Cursor.visible = true;
+        Time.timeScale = 0;
     }
     void Update()
     {
-    if (Input.GetKeyDown(pause) && !deathScreen.activeSelf)
+    if (Input.GetKeyDown(pause) && !deathScreen.activeSelf && !mainScreen.activeSelf)
         {
             if (time)
             {
@@ -45,6 +52,11 @@ public class Menu : MonoBehaviour
         pauseScreen.SetActive(false);
         Cursor.lockState = CursorLockMode.Locked;
         Cursor.visible = false;
+        if (mainScreen.activeSelf)
+        {
+            mainScreen.SetActive(false);
+            cam.SetActive(false);
+        }
     }
     public void restart()
     {
@@ -54,6 +66,7 @@ public class Menu : MonoBehaviour
         Cursor.lockState = CursorLockMode.Locked;
         Cursor.visible = false;
         deathScreen.SetActive(false);
+
     }
     public void death()
     {
